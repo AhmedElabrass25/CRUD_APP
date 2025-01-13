@@ -1,0 +1,124 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.dflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.title h1 {
+  letter-spacing: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #00adfbdb;
+  color: white;
+}
+.inputDiv {
+  position: relative;
+}
+.inputDiv p {
+  letter-spacing: 1px;
+}
+.inputDiv input,
+.inputDiv textarea {
+  padding: 10px;
+}
+.inputDiv textarea {
+  min-height: 50px;
+  resize: none;
+}
+.form-label {
+  position: absolute !important;
+  z-index: 99;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+.inputDiv input:focus + label,
+.inputDiv textarea:focus + label {
+  font-size: 15px !important;
+  color: #888 !important;
+  top: 0px !important;
+}
+.inputDiv input:focus,
+.inputDiv textarea:focus {
+  box-shadow: 2px 2px 13px 0px #7777774b !important;
+  border: 2px solid #7777774b;
+}
+form #addBtn,
+form #updateBtn {
+  letter-spacing: 2px;
+}
+form .formBtn button {
+  width: 200px;
+}
+/* >>>>>>>>>>>>>>>>>>>>>>>
+>>>>>Display Card
+>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.displayProduct .theCard {
+  background-color: white;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 5px;
+}
+.displayProduct .theCard h4 {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: #422447;
+}
+.displayProduct .theCard p {
+  font-size: 18px;
+  text-transform: capitalize;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 4px 0px;
+  border-radius: 5px;
+  margin-bottom: 20px !important;
+}
+.displayProduct .theCard .price,
+.displayProduct .theCard .category {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-bottom: 5px !important;
+  font-weight: 500;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 4px 0px;
+  border-radius: 5px;
+  color: rgba(50, 49, 49, 0.75) !important;
+}
+
+.displayProduct .theCard .price span,
+.displayProduct .theCard .category span {
+  padding-right: 10px;
+  color: rgb(31, 30, 30) !important;
+  font-size: 17px !important;
+}
+.displayProduct .theCard img {
+  height: 200px;
+  border: 2px solid #39373725;
+  border-radius: 6px;
+  padding: 10px;
+}
+.theCard .proName {
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+/* 
+>>>>>>>>>>>>>(Media Query)
+*/
+@media (max-width: 776px) {
+  form .formBtn button {
+    width: 75%;
+  }
+}

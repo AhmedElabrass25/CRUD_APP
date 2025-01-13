@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div
+        class="title w-100 d-flex align-items-center justify-content-center mb-3 px-4"
+      >
+        <h1
+          class="text-center fs-5 my-3 py-2 px-5 rounded-1 shadow-sm"
+          style="width: fit-content"
+        >
+          CRUD APP
+        </h1>
+      </div>
+      <form action class="row mt-5 pt-5">
+        <div class="col-md-6 col-12">
+          <div class="mb-3 w-100 mx-auto inputDiv">
+            <p for="productName" class="mb-1 ms-2">Product Name :</p>
+            <input type="text" class="form-control" id="productName" />
+            <div
+              class="w-100 alert alert-danger py-1 mt-1 d-none"
+              id="messageName"
+            >
+              It must start with a letter ,be 3 to 20 characters long,and can
+              only contain letters or numbers or underscores
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="mb-3 w-100 mx-auto inputDiv">
+            <p for="productPricesss" class="mb-1 ms-2">Product Price :</p>
+
+            <input type="number" class="form-control" id="productPrice" />
+            <div
+              class="w-100 alert alert-danger py-1 mt-1 d-none"
+              id="messagePrice"
+            >
+              It should be a number with up to 10 digits before the decimal
+              point and up to 2 digits after the decimal (e.g,100,50.56)
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="mb-3 w-100 mx-auto inputDiv">
+            <p for="productCategory" class="mb-1 ms-2">Product Category :</p>
+
+            <input
+              type="text"
+              class="form-control"
+              id="productCategory"
+              list="categories"
+            />
+
+            <datalist id="categories">
+              <option value="TV">TV</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Phone">Phone</option>
+              <option value="Screen">Screen</option>
+            </datalist>
+            <div
+              class="w-100 alert alert-danger py-1 mt-1 d-none"
+              id="messageCategory"
+            >
+              the category name has a specific length range (e.g., between 2 and
+              20 characters),
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="mb-3 w-100 mx-auto inputDiv">
+            <p for="productImage" class="mb-1 ms-2">Product Image :</p>
+            <input
+              type="file"
+              accept="image/*"
+              class="form-control"
+              id="productImage"
+              placeholder="Choose Image"
+            />
+            <div
+              class="w-100 alert alert-danger py-1 mt-1 d-none"
+              id="messageImage"
+            >
+              You should select image.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3 w-100 mx-auto inputDiv">
+            <p for="productDescription" class="mb-1 ms-2">
+              Product Description :
+            </p>
+
+            <textarea
+              name
+              id="productDescription"
+              type="text"
+              class="form-control"
+            ></textarea>
+            <div
+              class="w-100 alert alert-danger py-1 mt-1 d-none"
+              id="messageDescription"
+            >
+              allow only letters, spaces, and basic punctuation (e.g., commas,
+              periods, question marks), you can use this regex:
+            </div>
+          </div>
+        </div>
+
+        <div class="formBtn w-100 mx-auto my-3 text-center">
+          <button type="submit" class="btn btn-primary" id="addBtn">
+            Add Product
+          </button>
+          <button
+            type="submit"
+            class="btn btn-warning text-dark d-none"
+            id="updateBtn"
+          >
+            Update Product
+          </button>
+        </div>
+        <!-- >>>>>>>>>>>>>
+            Search Input
+          >>>>>>>>>>>>> -->
+        <div class="my-4 w-100 mx-auto inputDiv">
+          <input
+            type="text"
+            class="form-control shadow-md"
+            id="searchPro"
+            placeholder="Search by name..............."
+            style="
+              letter-spacing: 2px;
+              border: 2px solid rgba(0, 0, 255, 0.351);
+            "
+          />
+        </div>
+      </form>
+    </div>
+    <section class="displayProduct">
+      <div class="container">
+        <div class="row"></div>
+      </div>
+    </section>
+  </body>
+  <script src="js/all.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</html>
