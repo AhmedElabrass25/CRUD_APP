@@ -96,7 +96,7 @@ function displayProducts() {
   document.querySelector(".displayProduct .row").innerHTML = cartoona
     ? cartoona
     : `
-    <div class="w-100 d-flex align-items-center justify-content-center flex-wrap">
+    <div class="w-100 d-flex align-items-center justify-content-center flex-wrap text-center">
     <p class="alert alert-info fs-4 py-1 px-5 w-75"
       style="letter-spacing:1px;">There is no products ...................!</p>
     </div>
