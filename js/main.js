@@ -1,14 +1,21 @@
 // ========================>>>>>>>>>>>>>>>
 // >>>>>>>>>>>>>My project
 // ===========================>>>>>>>>>>>>
+// >>>>>>>>>>>
+// Loading Page
+// >>>>>>>>>>>>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".loading").style.display = "none";
+  }, 4000);
+});
+//>>>>>>>>>>>>>>>>>>Satart Project>>>>>>>>>>>>?
 let productName = document.getElementById("productName");
 let productPrice = document.getElementById("productPrice");
 let productCategory = document.getElementById("productCategory");
 let productDescription = document.getElementById("productDescription");
-let productImage = document.getElementById("productImage");
 let addProductBtn = document.getElementById("addBtn");
 let updateProductBtn = document.getElementById("updateBtn");
-
 let searchPro = document.getElementById("searchPro");
 
 let productsArr = [];
@@ -23,19 +30,14 @@ let addProduct = (e) => {
     validateInputs(productName, "messageName") &&
     validateInputs(productPrice, "messagePrice") &&
     validateInputs(productCategory, "messageCategory") &&
-    validateInputs(productDescription, "messageDescription") &&
-    validateInputs(productImage, "messageImage")
+    validateInputs(productDescription, "messageDescription")
   ) {
     let product = {
       theName: productName.value,
       price: productPrice.value,
       category: productCategory.value,
       description: productDescription.value,
-      image: productImage.files[0]
-        ? `images/${productImage.files[0]?.name}`
-        : `images/sc2.jpg`,
     };
-    // images/${productImage.files[0] ? productImage.files[0].name : ""}
     productsArr.push(product);
     localStorage.setItem("products", JSON.stringify(productsArr));
     console.log(productsArr);
@@ -51,13 +53,11 @@ function clearForm() {
   productPrice.value = null;
   productCategory.value = null;
   productDescription.value = null;
-  productImage.value = null;
   // clear validation
   productName.classList.remove("is-valid");
   productPrice.classList.remove("is-valid");
   productCategory.classList.remove("is-valid");
   productDescription.classList.remove("is-valid");
-  productImage.classList.remove("is-valid");
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>
 // Display Function
@@ -69,11 +69,10 @@ function displayProducts() {
     cartoona += `
       <div class="col-lg-4 col-md-6 col-12 mb-4" id=${i}>
             <div class="theCard text-center">
-              <img src="${productsArr[i].image}" class="w-75" alt="" />
               <h4 class="proName">${productsArr[i].theName}</h4>
-              <h5 class="price"><span class="">price :</span>${productsArr[i].price}$</h5>
+              <h5 class="price">$${productsArr[i].price}</h5>
               <h5 class="category">
-                <span class="">Category : </span>${productsArr[i].category}
+               ${productsArr[i].category}
               </h5>
                  <p class="w-100 text-secondary mb-2">
                 ${productsArr[i].description}
@@ -94,7 +93,14 @@ function displayProducts() {
           </div>
     `;
   }
-  document.querySelector(".displayProduct .row").innerHTML = cartoona;
+  document.querySelector(".displayProduct .row").innerHTML = cartoona
+    ? cartoona
+    : `
+    <div class="w-100 d-flex align-items-center justify-content-center flex-wrap">
+    <p class="alert alert-info fs-4 py-1 px-5 w-75"
+      style="letter-spacing:1px;">There is no products ...................!</p>
+    </div>
+    `;
 }
 addProductBtn.addEventListener("click", addProduct);
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -118,24 +124,23 @@ function searchProducts() {
       productsArr[i].theName.toLowerCase().includes(word.toLowerCase()) == true
     ) {
       cartoona += `
-      <div class="col-lg-4 col-md-6 col-12 mb-4" id=${i}>
+     <div class="col-lg-4 col-md-6 col-12 mb-4" id=${i}>
             <div class="theCard text-center">
-              <img src="${productsArr[i].image}" class="w-75" alt="" />
               <h4 class="proName">${productsArr[i].theName}</h4>
-              <h5 class="price"><span class="">price :</span>${productsArr[i].price}$</h5>
+              <h5 class="price">${productsArr[i].price}$</h5>
               <h5 class="category">
-                <span class="">Category : </span>${productsArr[i].category}
+               ${productsArr[i].category}
               </h5>
                  <p class="w-100 text-secondary mb-2">
                 ${productsArr[i].description}
               </p>
              <div class="d-flex flex-wrap align-items-center justify-content-between">
-              <button class="btn btn-outline-danger px-3  mb-2"
+              <button class="btn btn-danger px-3  mb-2"
               onClick={deleteProduct(${i})}
               >Delete
                <i class="fas fa-trash-alt ms-4"></i>
                </button>
-              <button class="btn btn-outline-warning px-3 mb-2"
+              <button class="btn btn-warning text-dark px-3 mb-2"
                onClick="setFormForUpdate(${i})">
               Update
                <i class="fas fa-pen ms-4"></i>
@@ -170,7 +175,7 @@ function setFormForUpdate(proIndex) {
   productPrice.value = productsArr[proIndex].price;
   productCategory.value = productsArr[proIndex].category;
   productDescription.value = productsArr[proIndex].description;
-  productImage.value = productsArr[proIndex].image;
+  // productImage.value = productsArr[proIndex].image;
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>
 // Update Product Function
@@ -186,10 +191,7 @@ updateProductBtn.addEventListener("click", (e) => {
   productsArr[updateIndex].price = productPrice.value;
   productsArr[updateIndex].category = productCategory.value;
   productsArr[updateIndex].description = productDescription.value;
-  (productsArr[updateIndex].image = productImage.files[0]
-    ? `images/${productImage.files[0]?.name}`
-    : `images/sc2.jpg`),
-    displayProducts(); //VIP
+  displayProducts(); //VIP
   localStorage.setItem("products", JSON.stringify(productsArr)); //VIP
   clearForm();
 });
@@ -205,7 +207,6 @@ function validateInputs(element, msgId) {
     productPrice: /^\d{1,10}(\.\d{1,2})?$/,
     productCategory: /^[a-zA-Z0-9\s-]{2,20}$/i,
     productDescription: /^[a-zA-Z0-9\s,.\?!]+$/im,
-    productImage: /^.{1,}\.(jpg|jpeg|png|avif|scg|webp)$/i,
   };
 
   let result = regex[element.id].test(inputVal);
@@ -235,8 +236,4 @@ productCategory.addEventListener("input", (e) => {
 
 productDescription.addEventListener("input", (e) => {
   validateInputs(e.target, "messageDescription");
-});
-
-productImage.addEventListener("change", (e) => {
-  validateInputs(e.target, "messageImage");
 });

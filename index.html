@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/logo.png" />
     <title>CRUD</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google font -->
+
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
+    <div class="loading">
+      <span class="loader"></span>
+    </div>
     <div class="container">
       <div
         class="title w-100 d-flex align-items-center justify-content-center mb-3 px-4"
@@ -79,24 +91,6 @@
         </div>
         <div class="col-md-6 col-12">
           <div class="mb-3 w-100 mx-auto inputDiv">
-            <p for="productImage" class="mb-1 ms-2">Product Image :</p>
-            <input
-              type="file"
-              accept="image/*"
-              class="form-control"
-              id="productImage"
-              placeholder="Choose Image"
-            />
-            <div
-              class="w-100 alert alert-danger py-1 mt-1 d-none"
-              id="messageImage"
-            >
-              You should select image.
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="mb-3 w-100 mx-auto inputDiv">
             <p for="productDescription" class="mb-1 ms-2">
               Product Description :
             </p>
@@ -116,7 +110,6 @@
             </div>
           </div>
         </div>
-
         <div class="formBtn w-100 mx-auto my-3 text-center">
           <button type="submit" class="btn btn-primary" id="addBtn">
             Add Product

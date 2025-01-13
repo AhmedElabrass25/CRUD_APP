@@ -3,7 +3,54 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: "Comfortaa", serif;
 }
+body {
+  font-family: "Comfortaa", serif;
+}
+/* >>>>>>>>Loading<<<<<<<<< */
+.loading {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #272b30d5;
+}
+.loader {
+  background: #de3500;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  text-align: center;
+  animation: 3s rotate linear infinite;
+}
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #ffff;
+  animation: 1.5s rotate reverse linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* >>>>>>>>Loading<<<<<<<<< */
 .dflex {
   display: flex;
   align-items: center;
@@ -20,9 +67,10 @@
 }
 .title h1 {
   letter-spacing: 1px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #00adfbdb;
+  font-family: "Comfortaa", serif;
+  background-color: #0b435edb;
   color: white;
+  font-weight: 500;
 }
 .inputDiv {
   position: relative;
@@ -35,7 +83,7 @@
   padding: 10px;
 }
 .inputDiv textarea {
-  min-height: 50px;
+  height: 50px !important;
   resize: none;
 }
 .form-label {
@@ -96,13 +144,6 @@ form .formBtn button {
   padding: 4px 0px;
   border-radius: 5px;
   color: rgba(50, 49, 49, 0.75) !important;
-}
-
-.displayProduct .theCard .price span,
-.displayProduct .theCard .category span {
-  padding-right: 10px;
-  color: rgb(31, 30, 30) !important;
-  font-size: 17px !important;
 }
 .displayProduct .theCard img {
   height: 200px;
