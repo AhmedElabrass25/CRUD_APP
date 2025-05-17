@@ -7,7 +7,7 @@
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.querySelector(".loading").style.display = "none";
-  }, 4000);
+  }, 1000);
 });
 //>>>>>>>>>>>>>>>>>>Satart Project>>>>>>>>>>>>?
 let productName = document.getElementById("productName");
@@ -162,6 +162,7 @@ searchPro.addEventListener("input", (e) => {
 // setFormForUpdate Function
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>
 let updateIndex;
+
 function setFormForUpdate(proIndex) {
   window.scrollTo({
     top: 0,
