@@ -204,10 +204,10 @@ function validateInputs(element, msgId) {
   let messageName = document.getElementById(msgId);
   let inputVal = element.value;
   let regex = {
-    productName: /^[a-zA-Z][a-zA-Z0-9_ ]{2,20}$/,
+    productName: /^[a-zA-Z][a-zA-Z0-9_ ]{2,100}$/,
     productPrice: /^\d{1,10}(\.\d{1,2})?$/,
     productCategory: /^[a-zA-Z0-9\s-]{2,20}$/i,
-    productDescription: /^[a-zA-Z0-9\s,.\?!]+$/im,
+    productDescription: /^[a-zA-Z0-9\s,-.\?!]+$/im,
   };
 
   let result = regex[element.id].test(inputVal);
