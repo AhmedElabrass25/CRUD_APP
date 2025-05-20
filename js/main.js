@@ -70,10 +70,13 @@ function displayProducts() {
       <div class="col-lg-4 col-md-6 col-12 mb-4" id=${i}>
             <div class="theCard text-center">
               <h4 class="proName">${productsArr[i].theName}</h4>
-              <h5 class="price">$${productsArr[i].price}</h5>
-              <h5 class="category">
+             <div class="price_category d-flex flex-wrap align-items-center justify-content-between">
+             <h5 class="category">
                ${productsArr[i].category}
               </h5>
+              <h5 class="price">$${productsArr[i].price}</h5>
+             </div>
+          
                  <p class="w-100 text-secondary mb-2">
                 ${productsArr[i].description}
               </p>
@@ -97,7 +100,7 @@ function displayProducts() {
     ? cartoona
     : `
     <div class="w-100 d-flex align-items-center justify-content-center flex-wrap text-center">
-    <p class="alert alert-info fs-4 py-1 px-5 w-75"
+    <p class="alert alert-light fs-4 py-1 px-5 w-75"
       style="letter-spacing:1px;">There is no products ...................!</p>
     </div>
     `;
@@ -127,11 +130,11 @@ function searchProducts() {
      <div class="col-lg-4 col-md-6 col-12 mb-4" id=${i}>
             <div class="theCard text-center">
               <h4 class="proName">${productsArr[i].theName}</h4>
-              <h5 class="price">${productsArr[i].price}$</h5>
               <h5 class="category">
                ${productsArr[i].category}
               </h5>
-                 <p class="w-100 text-secondary mb-2">
+              <h5 class="price">${productsArr[i].price}$</h5>
+                 <p class="w-100 mb-2">
                 ${productsArr[i].description}
               </p>
              <div class="d-flex flex-wrap align-items-center justify-content-between">

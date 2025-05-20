@@ -8,6 +8,7 @@
 
 body {
   font-family: "Comfortaa", serif;
+  background-color: #f5f7fa;
 }
 
 /* >>>>>>>>Loading<<<<<<<<< */
@@ -74,8 +75,8 @@ body {
 
 .title {
   width: 100%;
-  background-color: white;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  background-color: #f5f7fa;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   left: 0;
@@ -86,7 +87,7 @@ body {
 .title h1 {
   letter-spacing: 1px;
   font-family: "Comfortaa", serif;
-  background-color: #0b435edb;
+  background-color: #225872bf;
   color: white;
   font-weight: 500;
 }
@@ -143,8 +144,8 @@ form .formBtn button {
 >>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 .displayProduct .theCard {
-  background-color: white;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 254, 254, 0.718);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
   padding: 15px;
   border-radius: 5px;
 }
@@ -164,6 +165,13 @@ form .formBtn button {
   margin-bottom: 20px !important;
 }
 
+.displayProduct .theCard .price_category {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 .displayProduct .theCard .price,
 .displayProduct .theCard .category {
   font-size: 20px;
@@ -172,7 +180,6 @@ form .formBtn button {
   letter-spacing: 1px;
   margin-bottom: 5px !important;
   font-weight: 500;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   padding: 4px 0px;
   border-radius: 5px;
   color: rgba(50, 49, 49, 0.75) !important;
